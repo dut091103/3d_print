@@ -1,0 +1,17 @@
+/* 메인 페이지 전체를 감싸는 컨테이너 */
+.main-page-container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 🚀 3D 프린터 메인 이미지 스타일 최적화 */
+.main-page-container img,
+.main-content img {
+  width: 100% !important;    /* 화면 가로폭을 꽉 채우기 */
+  height: auto;              /* 이미지 비율 유지 */
+  display: block;            /* 하단 미세한 공백 방지 */
+  object-fit: cover;         /* 화면 크기에 맞게 예쁘게 채움 */
+}

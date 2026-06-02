@@ -1,0 +1,220 @@
+/* ==========================================
+   1. 생년월일 그룹 스타일 (어떤 상황에서도 무조건 1:1:1 삼등분)
+   ========================================== */
+
+/* 년-월-일 입력창들을 감싸는 한 줄 상자 */
+.birth-date-container {
+  display: flex;
+  gap: 10px;              /* 상자들 사이의 고정 간격 */
+  width: 100%;            /* 전체 가로폭 100% 다른 인풋들과 일치 */
+  align-items: center;    /* 세로축 가운데 정렬 */
+  margin-bottom: 15px;    
+  box-sizing: border-box !important;
+}
+
+/* 🌟 [수정] 년도 input창 가로폭을 전체의 33.33%로 강제 고정 */
+.birth-year {
+  width: calc(33.33% - 7px) !important; /* 간격(gap)을 계산한 완벽한 3등분 */
+  flex: none !important;                /* flex가 멋대로 크기 키우는 것 차단 */
+  height: 45px;           
+  padding: 0 12px;        
+  border: 1px solid #dcdcdc; 
+  border-radius: 8px;     
+  box-sizing: border-box !important; 
+  font-size: 15px;        
+  color: #333;
+  background-color: #ffffff;
+}
+
+/* 🌟 [수정] 월, 일 라이브러리 상자 외곽 틀도 무조건 33.33%로 고정 */
+.birth-month,
+.birth-day {
+  width: calc(33.33% - 7px) !important; /* 간격(gap)을 계산한 완벽한 3등분 */
+  flex: none !important;                /* flex 알맹이 크기 무시 */
+  box-sizing: border-box !important;
+  text-align: left; /* 선택된 텍스트가 왼쪽 정렬되도록 */
+}
+
+/* 🌟 [핵심 보강] 라이브러리 내부 알맹이(control)가 삐져나오거나 작아지지 않게 100% 꽉 채우기 */
+.birth-month .react-select__control,
+.birth-day .react-select__control {
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  min-height: 45px !important;
+  height: 45px !important;
+  border: 1px solid #dcdcdc !important;
+  border-radius: 8px !important;
+  box-sizing: border-box !important;
+  box-shadow: none !important;
+  background-color: #ffffff !important;
+  cursor: pointer;
+}
+
+/* 마우스 올렸을 때(호버) 디자인 */
+.birth-month .react-select__control:hover,
+.birth-day .react-select__control:hover {
+  border-color: #a0a0a0 !important;
+}
+
+/* 년도 인풋창 클릭(포커스)했을 때 검은 테두리 방지 */
+.birth-year:focus {
+  outline: none;
+  border-color: #a0a0a0 !important;
+}
+
+/* ==========================================
+   2. 학번 그룹 스타일 (정확한 3등분 및 화살표 완벽 차단)
+   ========================================== */
+
+/* 학년-반-학번 입력창들을 감싸는 한 줄 상자 */
+.student-info-container {
+  display: flex;
+  gap: 10px;              /* 상자들 사이의 간격 */
+  width: 100%;
+  align-items: center;    /* 세로축 일렬 정렬 */
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+/* 학년, 반, 학번 세 상자의 공통 디자인 (3등분 정렬) */
+.student-input {
+  flex: 1 1 0%;           /* 정확히 3분의 1 크기 분배 */
+  height: 45px;           /* 생년월일 상자와 높이 45px 완벽 일치 */
+  padding: 0 12px;        /* 내부 좌우 여백 */
+  border: 1px solid #dcdcdc; /* 부드러운 회색 테두리 일치 */
+  border-radius: 8px;     /* 둥근 모서리 곡률 일치 */
+  box-sizing: border-box; /* 패딩 잠금 */
+  font-size: 15px;
+  color: #333;
+  background-color: #ffffff;
+}
+
+/* 클릭(포커스)했을 때 테두리 색상 부드럽게 변경 */
+.student-input:focus {
+  outline: none;
+  border-color: #a0a0a0;
+}
+
+/* 🌟 [핵심] 학년, 반, 학번창 우측의 이상한 위아래 화살표 버튼 강제 소멸 */
+.student-input::-webkit-outer-spin-button,
+.student-input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0 !important;
+}
+
+.student-input {
+  -moz-appearance: textfield !important; /* 파이어폭스 브라우저 대응 */
+}
+
+
+/* ==========================================
+   3. 회원가입 카드 내부 스크롤 및 디자인 설정
+   ========================================== */
+/* src/page/registerPage.css */
+
+.register-card {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  box-sizing: border-box;
+
+  /* 🌟 카드 내부 스크롤 치트키 설정 */
+  max-height: 75vh;     /* 카드 높이가 전체 화면 높이의 75%를 넘지 않도록 제한 */
+  overflow-y: auto;     /* 내용이 많아져서 75%를 넘어가면 내부에 스크롤바 생성 */
+}
+
+.register-card h2 {
+  margin: 10px 0 25px;
+  color: #333;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+/* 💡 스크롤바 가독성을 위해 얇고 예쁘게 만드는 스타일 */
+.register-card::-webkit-scrollbar {
+  width: 6px;           /* 스크롤바 두께 */
+}
+
+.register-card::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2); /* 스크롤바 막대 색상 (연한 회색) */
+  border-radius: 4px;
+}
+
+.register-card::-webkit-scrollbar-track {
+  background: transparent; /* 스크롤바 배경은 투명하게 */
+}
+
+
+.button-container {
+    /* background-color: #7a0000; */
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* ==========================================
+   4. 회원가입 / 취소 버튼 스타일 (연한 선 + 그림자 매칭)
+   ========================================== */
+
+/* 🌟 두 버튼 모두에게 공통으로 먹히는 기본 디자인 */
+.register-button {
+  width: 49%;
+  height: 50px;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;                     
+  border-radius: 6px;
+  cursor: pointer;
+  
+  /* [글자 정렬 및 밑줄 완벽 차단] */
+  text-decoration: none !important; 
+  display: inline-flex;             
+  align-items: center;
+  justify-content: center;
+
+  /* [티 안 나는 은은한 기본 그림자] */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03); 
+  transition: background-color 0.2s, box-shadow 0.2s, color 0.2s, border-color 0.2s;
+}
+
+/* 🌟 가입하기 버튼 */
+.register-button.main {
+  background-color: #cac5bc;
+  color: #000000;
+}
+
+/* 🌟 가입취소 버튼 (진한 검은 선 대신 아주 연한 테두리선 추가) */
+.register-button.sub {
+  background-color: #F4F2EF;
+  color: #000000;
+  
+  /* 🌟 티 안 나게 얇고 연한 회색 선 레이어 추가 (핵심) */
+  border: 1px solid rgba(0, 0, 0, 0.08) !important; 
+  
+  /* 기존의 포근하고 은은한 그림자 유지 */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+}
+
+/* 💡 가입하기 마우스 호버 효과 */
+.register-button.main:hover {
+  background-color: #b5a58b; 
+  color: #fff;
+  text-decoration: none !important; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+}
+
+/* 💡 가입취소 마우스 호버 효과 */
+.register-button.sub:hover {
+  background-color: #E2DED8; 
+  text-decoration: none !important; 
+  
+  /* 🌟 마우스 호버 시 선을 살짝만 더 선명하게 */
+  border-color: rgba(0, 0, 0, 0.15) !important; 
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07) !important; 
+}

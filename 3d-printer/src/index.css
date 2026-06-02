@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+/* index.css 또는 App.css */
+/* src/index.css */
+
+/* 1. 기본으로 사용할 얇은 폰트 등록 */
+@font-face {
+  font-family: 'MainThinFont';
+  /* 실제 파일인 SCD.otf 경로와 opentype 포맷 적용 */
+  src: url('./assets/fonts/SCD.otf') format('opentype');
+}
+
+/* 2. 포인트로 사용할 전혀 다른 두꺼운 폰트 등록 */
+@font-face {
+  font-family: 'PointBoldFont';
+  /* 💡 실제 파일인 SB.ttf 확장자로 정확히 매칭! 포맷은 truetype */
+  src: url('./assets/fonts/SB.ttf') format('truetype');
+}
+
+/* -------------------------------------------------- */
+
+/* 3. 전체 페이지 기본 세팅 */
+body, input, button {
+  font-family: 'MainThinFont', sans-serif;
+}
+
+/* 4. 특정 글자(제목, 버튼 등)에만 덮어쓸 두꺼운 폰트 클래스 */
+.title-font {
+  font-family: 'PointBoldFont', sans-serif;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* 가로 스크롤바는 무조건 차단 */
+}
