@@ -15,22 +15,29 @@ function App() {
       <div className="App">
         {/* 상단 고정 메뉴바 */}
 
-          {/* 복잡한 것 다 지우고 이 상자 하나에 순서대로 다 넣습니다 */}
+
           <header className="global-header">
-            {/* 복잡한 것 다 지우고 이 상자 하나에 순서대로 다 넣습니다 */}
             <div className="header-container">
               
-              {/* 1. 홈 (로고) */}
-              <Link to="/" className="logo-link">
-                <span className="logo-text">홈</span>
-              </Link>
+              {/* [1] 좌측 영역: 메뉴들 */}
+              <div className="header-left-group">
+                <Link to="/Home" className="logo-link">
+                  <span className="logo-text">홈</span>
+                </Link>
+                <Link to="/History" className="menu-item">예약</Link>
+                <Link to="/Reservation" className="menu-item text-nowrap mypage-item">마이페이지</Link>
+              </div>
 
-              {/* 2. 메뉴들 */}
-              <Link to="/History" className="menu-item">기록</Link>
-              <Link to="/Reservation" className="menu-item text-nowrap">예약</Link>
+              {/* [2] 중앙 영역: 로고 이미지들 */}
+              <div className="header-center-group">
+                <img src="/spam.png" alt="spam" className="spam-img" />
+                <img src="/srh.png" alt="srh" className="srh-img" />
+              </div>
 
-              {/* 3. 스팸 이미지 */}
-              <img src="/spam.png" alt="spam" className="spam-img" />
+              {/* [3] 우측 영역: 로그아웃 */}
+              <div className="header-right-group">
+                <Link to="/History" className="menu-item logout-item">로그아웃</Link>
+              </div>
 
             </div>
           </header>
@@ -49,8 +56,8 @@ function App() {
             {/* 🏠 2. 기존 <div> 글자 자리에 실제 MainPage 컴포넌트를 장착합니다! */}
             <Route path="/Home" element={<MainPage />} />
             
-            <Route path="/History" element={<div>기록 화면 콘텐츠 (준비중)</div>} />
-            <Route path="/Reservation" element={<div>예약 화면 콘텐츠 (준비중)</div>} />
+            <Route path="/Reservation" element={<reservationPage />} />
+            <Route path="/mypage" element={<div>마이페이지 화면 콘텐츠 (준비중)</div>} />
             
             {/* 🔑 로그인 페이지 경로 */}
             <Route path="/Login" element={<LoginPage setIsLoggedIn={setIsLoggedIn} />} />
@@ -59,6 +66,16 @@ function App() {
             <Route path="/Register" element={<RegisterPage />} />
           </Routes>
         </main>
+
+        <div className="footer">
+          <p>서울로봇고등학교 3D 프린터 관리 시스템</p>
+          <p>SPAM 동아리에서 제작</p>
+          <div className="footer-content">
+            <span>Frontend: react</span>
+            <span>Backend: DRF</span>
+            <span>Design: figma</span>
+          </div>
+        </div>
       </div>
     </Router>
   );

@@ -15,3 +15,170 @@
   display: block;            /* 하단 미세한 공백 방지 */
   object-fit: cover;         /* 화면 크기에 맞게 예쁘게 채움 */
 }
+
+/* p 태그 전역 스타일에서 margin-left 제거 */
+p {
+  font-size: 15px;
+  /* display: inline-block; */
+  /* background-color: #ffffff; */
+  /* margin: 0;             margin-left: 20% 제거 */
+}
+
+
+
+
+.res-button{
+  width: 17%;
+  height: auto;
+  padding: 12px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #cac5bc;
+  color: #000000;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-right: 20px; /* 버튼과 제목 사이에 여백 추가 */
+}
+
+/*상태 박스 스타일 */
+.status-container{
+  margin: 20px auto 20px;
+  padding: 20px;
+  width: 80%;
+  height: 60vh;
+  /* background-color: #501b1b; */
+  border-radius: 10px;
+  border: 1px solid #000000;
+}
+.title-font {
+  font-size: 35px;
+  margin: 10px 20px 0;             /* 기존 margin 제거 */
+  /* background-color: #ffffff; */
+  display: inline-block;
+}
+
+/* ✅ 수정: 텍스트를 이미지 위에 겹치도록 position: relative 적용 */
+.main-title {
+  position: relative;   /* span의 기준점 */
+  width: 100%;
+  display: block;
+}
+
+/* ✅ 수정: 이미지가 컨테이너를 꽉 채우도록 */
+.m-image {
+  width: 100% !important;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* ✅ 수정: 텍스트를 이미지 위에 절대 배치 */
+.main-title span {
+  position: absolute;
+  bottom: 20px;
+  padding-bottom: 2%;
+  left: 20px;
+  color: #ffffff;
+  font-size: 30px;
+  line-height: 1.8;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);  /* 가독성용 그림자 */
+}
+
+.title-row {
+  display: flex;
+  justify-content: space-between; /* 제목과 버튼 사이에 공간을 균등하게 배치 */
+  align-items: center;
+  width: 100%;
+  padding: 2% 10% 1%;
+  box-sizing: border-box;
+}
+.status-container p {
+  font-size: 20px;
+  margin: 0; /* p 태그의 기본 margin 제거 */
+  /* border-bottom: 2px solid black; */
+}
+.status-container{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5%;
+  /* background-color: #c60d0d;   */
+}
+
+.status-container hr {
+  width: 100%;
+  border: none;
+  border-top: 1px solid black;
+  margin: 10px 0;
+}
+
+/* 상태 */
+/* 전체 컨테이너 설정 */
+/* ========================================================
+   새로 추가된 4분할 개별 프린터 카드 스타일 (인라인 CSS 완전 분리)
+======================================================== */
+
+/* 4개의 카드를 감싸는 검은색 바탕의 부모 컨테이너 */
+.image-container-new {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #000000; */
+  padding: 20px;
+  width: 95%;
+  box-sizing: border-box;
+  margin-top: 20px;
+}
+
+/* 이미지 1개 + 버튼 1개가 수직으로 정렬되는 개별 카드 박스 */
+.printer-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(25% - 20px); /* 4등분 비율 계산 */
+}
+
+/* 개별 카드 안의 상태 이미지 스타일 (엑박 방지 및 비율 유지) */
+.status-img-new {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* 새로 만든 개별 제어 버튼 기본 스타일 */
+.status-button-new {
+  width: 90%;
+  margin-top: 10px;
+  padding: 10px 0;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+/* 버튼의 상태별 색상 */
+.status-button-new.available {
+  background-color: #000000; /* 사용 가능일 때 초록색 */
+  color: #ffffff; /* 버튼 글자 색상 흰색 */
+  border-radius: 50px;
+}
+
+.status-button-new.unavailable {
+  background-color: #9B9B9B; /* 사용 중지일 때 빨간색 */
+  color: #ffffff; /* 버튼 글자 색상 흰색 */
+  border-radius: 50px;
+}
+
+/* ⚠️ 기존에 있던 싱글 버전을 화면에서 숨기기 위한 클래스 */
+.image-container-old,
+.old-btn-hidden {
+  display: none !important;
+}

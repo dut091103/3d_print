@@ -16,18 +16,18 @@ function Navbar() {
       홈
     </Link>
       
-      <Link 
-        to="/history" 
-        className={`nav-item ${location.pathname === '/history' ? 'active' : ''}`}
-      >
-        기록
-      </Link>
       
       <Link 
         to="/reservation" 
         className={`nav-item ${location.pathname === '/reservation' ? 'active' : ''}`}
       >
         예약
+      </Link>
+      <Link 
+        to="/mypage" 
+        className={`nav-item ${location.pathname === '/mypage' ? 'active' : ''}`}
+      >
+        마이페이지
       </Link>
       /* 상단바 전체를 감싸는 긴 띠 상자 */
       <Link 
