@@ -2,10 +2,9 @@ import React, { useState } from 'react'; // { useState } 추가
 import './mainPage.css'; // 메인페이지 전용 CSS가 필요하다면 생성
 import { useNavigate } from 'react-router-dom';
 
-function MainPage() {
+function MainPage({ printerStates, setPrinterStates }) {
   const navigate = useNavigate();
-  // 💡 4개 프린터의 상태를 배열로 관리 (true: 사용 가능, false: 사용 중)
-  const [printerStates, setPrinterStates] = useState([true, true, true, true]);
+
   // 💡 클릭한 프린터(index)의 상태만 반대로 뒤집는 함수
   const handleUseClick = (index) => {
     const newStates = [...printerStates];

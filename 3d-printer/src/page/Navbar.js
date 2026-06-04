@@ -30,12 +30,6 @@ function Navbar() {
         마이페이지
       </Link>
       /* 상단바 전체를 감싸는 긴 띠 상자 */
-      <Link 
-        to="/mypage" 
-        className={`nav-item ${location.pathname === '/mypage' ? 'active' : ''}`}
-      >
-        마이페이지
-      </Link>
     </nav>
   );
 }
