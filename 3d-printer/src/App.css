@@ -59,12 +59,6 @@ body {
   flex: 1;                    /* 좌측 그룹과 동일한 공간 비율 확보 */
 }
 
-/* 로고(홈) 텍스트 스타일 */
-.logo-text {
-  font-size: 18px;
-  color: #ffffff;
-  text-decoration: none;
-}
 
 /* 상단 헤더 메뉴 링크 기본 스타일 초기화 */
 .logo-link {
@@ -101,7 +95,7 @@ body {
 
 /* 🖼️ 서울로봇고 이미지 스타일 */
 .srh-img {
-  width: 230px;             /* 요청하신 크기 유지 */
+  width: 160px;             /* 요청하신 크기 유지 */
   height: auto;             /* 비율 자동 조절 */
   object-fit: contain;
 }

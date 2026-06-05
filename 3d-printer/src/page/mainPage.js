@@ -19,12 +19,12 @@ function MainPage({ printerStates, setPrinterStates }) {
     <>
     <div className="main-title">
       <img src="/main.png" alt="M" className="m-image" />
-      <span className="title-font">우리 학교 3D 프린터를<br /> 한 곳에서.</span>
+      <div className="title-font main-font">우리 학교 3D 프린터를<br /> 한 곳에서.</div>
     </div>
     <div className="main-container">
       <div className="title-row">
         <p className="title-font">프린터 상태 표시</p>
-        <button type="button" className="res-button" onClick={() => navigate('/reservation')}>
+        <button type="button" className="res-button" onClick={() => navigate('/Reservation')}>
           예약 바로 가기 &gt;
         </button>
       </div>
@@ -44,6 +44,7 @@ function MainPage({ printerStates, setPrinterStates }) {
               <button 
                 onClick={() => handleUseClick(index)}
                 className={`status-button-new ${state ? 'available' : 'unavailable'}`}
+
               >
                 {state ? '사용하기' : '사용 불가'}
               </button>

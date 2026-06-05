@@ -3,14 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import './reservationPage.css';
 
 function ReservationPage({ printerStates, setPrinterStates }) {
-    const navigate = useNavigate();
+  console.log('printerStates:', printerStates); // 이게 정확히 여기 있어야 해요
+  const navigate = useNavigate();
     // const [printerStates, setPrinterStates] = useState([true, true, true, true]);
       // 💡 클릭한 프린터(index)의 상태만 반대로 뒤집는 함수
       const handleUseClick = (index) => {
         const newStates = [...printerStates];
         newStates[index] = !newStates[index];
         setPrinterStates(newStates);
-      };
+      
+    };
 
         // 임시로 기존 에러를 방지하기 위해 첫 번째 프린터의 상태를 대표로 정의해 둡니다.
   const isAvailable = printerStates[0];
@@ -18,12 +20,12 @@ function ReservationPage({ printerStates, setPrinterStates }) {
         <>
         <div className="res-title">
             <img src="/res.png" alt="R" className="r-image" /> 
-            <span className="title-font">모든 예약은 이곳에서 하세요.</span>
+            <p className="title-font res-font">모든 예약은 이곳에서 하세요.</p>
+            <hr/>
         </div>
         <div className="main-container">
             <div className="title-row">
                 <p className="title-font">예약</p>
-                
             </div>
             <div className="status-container">
                 <p>2층 소프트웨어 3D프린터</p>

@@ -29,6 +29,12 @@ function Navbar() {
       >
         마이페이지
       </Link>
+      <Link 
+        to="/logout" 
+        className={`nav-item ${location.pathname === '/logout' ? 'active' : ''}`}
+      >
+        마이페이지
+      </Link>
       /* 상단바 전체를 감싸는 긴 띠 상자 */
     </nav>
   );
