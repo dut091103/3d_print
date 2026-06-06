@@ -80,8 +80,8 @@ p {
 /* ✅ 수정: 텍스트를 이미지 위에 절대 배치 */
 .main-title div {
   position: absolute;
-  bottom: 20px;
-  padding-bottom: 2%;
+  bottom: 17px;
+  /* padding-bottom: 2%; */
   left: 20px;
   color: #ffffff;
   font-size: 30px;

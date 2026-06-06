@@ -1,0 +1,116 @@
+.email-page {
+  display: flex;
+  height: calc(100vh - 60px);
+  overflow: hidden;
+}
+
+/* 사이드바 */
+.setting-sidebar {
+  width: 160px;
+  min-height: 100vh;
+  background-color: #e8e4de;
+  border-right: 2px solid #4a90d9;
+  padding: 32px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.setting-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.setting-title-text {
+  font-size: 20px;
+  font-weight: 700;
+  color: #222;
+}
+
+.setting-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.setting-nav-item {
+  font-size: 15px;
+  color: #555;
+  cursor: pointer;
+  padding: 4px 0;
+  transition: color 0.2s;
+}
+
+.setting-nav-item:hover {
+  color: #222;
+}
+
+/* 콘텐츠 */
+.email-content {
+  flex: 1;
+  padding: 40px 48px;
+}
+
+.email-section-label {
+  font-size: 14px;
+  color: #888;
+  font-weight: 400;
+  margin: 0 0 6px 0;
+}
+
+.email-divider {
+  border: none;
+  border-top: 1.5px solid #bbb;
+  margin-bottom: 28px;
+}
+
+.email-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 20px 0;
+}
+
+/* 각 항목 */
+.email-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: #f5f2ed;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #333;
+}
+
+.email-label {
+  min-width: 70px;
+  color: #555;
+  font-size: 13px;
+}
+
+.email-bar {
+  color: #bbb;
+  font-weight: 300;
+}
+
+.email-value {
+  color: #333;
+  font-size: 14px;
+}
+
+.email-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  color: #333;
+  outline: none;
+}
+
+.email-input::placeholder {
+  color: #bbb;
+}

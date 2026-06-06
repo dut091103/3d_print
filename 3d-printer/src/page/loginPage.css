@@ -5,7 +5,7 @@
   width: 100%;
   
   /* 🌟 핵심 수정: 전체 화면(100vh)에서 상단 헤더 높이(60px)만큼 빼줍니다 */
-  height: calc(100vh - 60px); 
+  height: 100vh; 
   
   /* 혹시 모를 내부 요소 삐져나옴으로 인한 스크롤 방지 */
   overflow: hidden; 
@@ -41,7 +41,7 @@
   padding: 10px 30px 30px;
   border-radius: 5px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  width: 45%;
+  width: 60%;
   text-align: center;
 }
 
@@ -163,4 +163,3 @@ span{
   color: #333;
   text-decoration: underline; /* 밑줄 추가 효과 */
 }
-

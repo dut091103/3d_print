@@ -17,7 +17,7 @@ function MainPage({ printerStates, setPrinterStates }) {
       {/* 1. 상단 배너 영역 */}
       <div className="main-title">
         <img src="/main.png" alt="M" className="m-image" />
-        <div className="title-font main-font">우리 학교 3D 프린터를<br /> 한 곳에서.</div>
+        <div className="title-font">우리 학교 3D 프린터를<br /> 한 곳에서.</div>
       </div>
 
       {/* 2. 중앙 컨테이너 영역 */}
