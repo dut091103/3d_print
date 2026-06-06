@@ -50,38 +50,7 @@ function ReservationPage({ printerStates, setPrinterStates }) {
                 ))}
                 </div>
 
-                {/* ⚠️ 아래는 기존 구조 유지를 위해 주석과 코드를 건들지 않은 영역입니다 */}
-                <div className="image-container-old">
-                {isAvailable ? (
-                    /* 사용 가능(true) 상태일 때 보여줄 이미지 4개 조합 */
-                    <>
-                    <img src="/Available.png" alt="사용 가능" className="status-img" />
-                    <img src="/Available.png" alt="사용 가능" className="status-img" />
-                    <img src="/Available.png" alt="사용 가능" className="status-img" />
-                    <img src="/Available.png" alt="사용 가능" className="status-img" />
-                    </>
-                ) : (
-                    /* 사용 불가(false) 상태일 때 보여줄 이미지 4개 조합 (원하는 주소로 변경 가능) */
-                    <>
-                    <img src="/In_Use.png" alt="사용 불가" className="status-img" />
-                    <img src="/In_Use.png" alt="사용 불가" className="status-img" />
-                    <img src="/In_Use.png" alt="사용 불가" className="status-img" />
-                    <img src="/In_Use.png" alt="사용 불가" className="status-img" />
-                    </>
-                )}
-                </div>
 
-                {/* 2. 상태(isAvailable)에 따라 버튼의 클래스명을 다르게 부여 */}
-                {/* 화면 혼선을 막기 위해 임시 숨김 처리 */}
-                <button 
-                onClick={() => handleUseClick(0)}
-                className={`status-button ${isAvailable ? 'available' : 'In_Use'} old-btn-hidden`}
-                >
-                {isAvailable ? '사용하기' : '사용 불가'}
-                </button>
-
-                {/* <div className="asset-container"> */}
-                {/* <h2>시설/자산 상태 변경</h2> */}
 
             </div>
         </div>

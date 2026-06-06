@@ -33,7 +33,13 @@ function Navbar() {
         to="/logout" 
         className={`nav-item ${location.pathname === '/logout' ? 'active' : ''}`}
       >
-        마이페이지
+        로그아웃
+      </Link>
+      <Link 
+        to="/settings" 
+        className={`nav-item ${location.pathname === '/settings' ? 'active' : ''}`}
+      >
+        설정
       </Link>
       /* 상단바 전체를 감싸는 긴 띠 상자 */
     </nav>
