@@ -5,7 +5,7 @@ import './VerifyEmail.css';
 function VerifyEmail() {
   const navigate = useNavigate();
   const [code, setCode] = useState('');
-  const [timer, setTimer] = useState(547); // 9분 7초
+  const [timer, setTimer] = useState(600); // 9분 7초
   const [isActive, setIsActive] = useState(true);
 
   useEffect(() => {
@@ -69,7 +69,7 @@ function VerifyEmail() {
         </div>
 
         {/* 확인 버튼 */}
-        <button className="verify-confirm-btn" onClick={handleConfirm}>
+        <button className="verify-confirm-btn" onClick={() => navigate('/reset-password')}>
           확인
         </button>
 

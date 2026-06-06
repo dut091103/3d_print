@@ -65,7 +65,7 @@ function LoginPage({ setIsLoggedIn }) {
             <button type="button" className="password-button" onClick={() => navigate('/Register')}>
               회원가입
             </button>
-            <button type="button" className="password-button" onClick={() => navigate('/FindPassword')}>
+            <button type="button" className="password-button" onClick={() => navigate('/find-password')}>
               비밀번호 찾기
             </button>
           </div>

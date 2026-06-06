@@ -11,6 +11,7 @@ import PasswordChange from './page/PasswordChange';
 import Notification from './page/Notification';
 import FindPassword from './page/FindPassword';
 import VerifyEmail from './page/VerifyEmail';
+import ResetPassword from './page/ResetPassword';
 import './App.css';
 
 function AppContent() {
@@ -19,8 +20,7 @@ function AppContent() {
   const location = useLocation();
 
   // 💡 1. 헤더와 푸터를 완전히 숨겨야 하는 "독립 페이지" 주소 정의
-  const isAuthPage = ['/Login', '/Register', '/login', '/register','/FindPassword','/VerifyEmail'].includes(location.pathname);
-
+  const isAuthPage = ['/Login', '/Register', '/login', '/register', '/find-password', '/verify-email','/reset-password'].includes(location.pathname);
   // 푸터를 숨길 설정 페이지들
   const hideFooterOnly = ['/settings', '/email-change', '/password-change', '/notification']
     .includes(location.pathname);
@@ -61,8 +61,9 @@ function AppContent() {
           <Route path="/email-change" element={<EmailChange />} />
           <Route path="/password-change" element={<PasswordChange />} />
           <Route path="/notification" element={<Notification />} />
-          <Route path="/FindPassword" element={<FindPassword />} />
-          <Route path="/VerifyEmail" element={<VerifyEmail />} />
+          <Route path="/find-password" element={<FindPassword />} />
+          <Route path="/verify-email" element={<VerifyEmail />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
         </Routes>
       </main>
 
