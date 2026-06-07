@@ -28,10 +28,10 @@ function PasswordChange() {
 
       {/* 콘텐츠 */}
       <div className="pw-content">
-        <h3 className="pw-section-label">로그인 정보</h3>
-        <hr className="pw-divider" />
+        <h2 className="head">로그인 정보</h2>
+        <hr className="section-divider" />
 
-        <h2 className="pw-title">비밀번호 변경</h2>
+        <h2 className="head">비밀번호 변경</h2>
 
         {/* 기존 비밀번호 */}
         <div className="pw-item">
@@ -45,8 +45,12 @@ function PasswordChange() {
             onChange={(e) => setOldPw(e.target.value)}
           />
           <button className="eye-btn" onClick={() => setShowOld(!showOld)}>
-            {showOld ? '🙈' : '👁️'}
-          </button>
+          {showOld ? (
+            <img src="./open.png" alt="Open" />
+          ) : (
+            <img src="./close.png" alt="Close" />
+          )}
+        </button>
         </div>
 
         {/* 새 비밀번호 */}
@@ -61,7 +65,11 @@ function PasswordChange() {
             onChange={(e) => setNewPw(e.target.value)}
           />
           <button className="eye-btn" onClick={() => setShowNew(!showNew)}>
-            {showNew ? '🙈' : '👁️'}
+            {showNew ? (
+            <img src="./open.png" alt="Open" />
+          ) : (
+            <img src="./close.png" alt="Close" />
+          )}
           </button>
         </div>
 
@@ -77,7 +85,11 @@ function PasswordChange() {
             onChange={(e) => setConfirmPw(e.target.value)}
           />
           <button className="eye-btn" onClick={() => setShowConfirm(!showConfirm)}>
-            {showConfirm ? '🙈' : '👁️'}
+            {showConfirm ? (
+            <img src="./open.png" alt="Open" />
+          ) : (
+            <img src="./close.png" alt="Close" />
+          )}
           </button>
         </div>
 

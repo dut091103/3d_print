@@ -44,19 +44,19 @@ function MyPage() {
       {/* 내 기록 보기 */}
       <div className="record">
         <div className="title-font my-font">내 기록 보기</div>
-        <hr />
+        <hr className="section-divider" />
 
         <div style={{ display: 'flex', flex: 1, height: '100%' }}>
 
           {/* 프린터 번호 열 */}
-          <div style={{ flex: 1, borderRight: '1px solid #ccc' }}>
+          <div style={{ flex: 1, borderRight: '1px solid #000000' }}>
             <div className="line" style={{ padding: '10px 0', textAlign: 'center' }}>프린터 번호</div>
             <div style={{ padding: '10px 0', textAlign: 'center' }}>프린터A</div>
             <div style={{ padding: '10px 0', textAlign: 'center' }}>프린터B</div>
           </div>
 
           {/* 시작 시간 열 */}
-          <div style={{ flex: 1, borderRight: '1px solid #ccc' }}>
+          <div style={{ flex: 1, borderRight: '1px solid #000000' }}>
             <div className="line" style={{ padding: '10px 0', textAlign: 'center' }}>시작 시간</div>
             <div style={{ padding: '10px 0', textAlign: 'center' }}>2026.05.08/17:00</div>
             <div style={{ padding: '10px 0', textAlign: 'center' }}>2026.05.08/14:00</div>

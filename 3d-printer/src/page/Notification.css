@@ -1,32 +1,43 @@
 .noti-page {
   display: flex;
-  height: calc(100vh - 60px); /* 100vh에서 header 높이만큼 빼기 */
+  height: calc(100vh - 60px);
   background-color: #f0ede8;
-  font-family: 'Noto Sans KR', sans-serif;
-  overflow: hidden; /* 스크롤 제거 */
+  overflow: hidden;
 }
 
+/* Notification.css */
 .setting-sidebar {
   width: 160px;
-  height: 100%; /* min-height 대신 height 사용 */
+  height: 100%;
   background-color: #e8e4de;
-  border-right: 2px solid #4a90d9;
+  border-right: 2px solid #000000;
   padding: 32px 16px;
   display: flex;
   flex-direction: column;
   gap: 32px;
+  align-items: center;  /* ✅ flex-start → center */
 }
 
 .setting-title {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
+  width: fit-content;
+  flex-shrink: 0;
 }
 
 .setting-title-text {
   font-size: 20px;
   font-weight: 700;
   color: #222;
+  white-space: nowrap;
+}
+
+.setting-icon-img {
+  width: 24px !important;
+  height: 24px !important;
+  object-fit: contain !important;
+  flex-shrink: 0;
 }
 
 .setting-nav {
@@ -59,10 +70,10 @@
 }
 
 .noti-section-title {
-  font-size: 18px;
-  font-weight: 600;
-  color: #222;
-  margin: 0 0 8px 0;
+  font-size: 22px;
+  color: #000000;
+  font-weight: 400;
+  margin: 0 0 10px 25px;
 }
 
 .noti-divider {
@@ -72,10 +83,10 @@
 }
 
 .noti-sub-title {
-  font-size: 15px;
-  font-weight: 700;
-  color: #222;
-  margin: 0 0 12px 0;
+  font-size: 22px;
+  color: #000000;
+  font-weight: 400;
+  margin: 0 0 10px 25px;
 }
 
 /* 알림 항목 */
@@ -88,8 +99,10 @@
   border-radius: 8px;
   padding: 14px 18px;
   font-size: 14px;
+  margin-left: 25px;
   color: #333;
   max-width: 480px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);  /* ✅ 추가 */
 }
 
 .noti-label {
@@ -99,31 +112,40 @@
 
 /* 토글 스위치 */
 .toggle {
-  width: 48px;
-  height: 26px;
-  background-color: #ccc;
-  border-radius: 999px;
-  cursor: pointer;
+  width: 70px;
+  height: 28px;
+  background-color: #E2DED8;
+  border-radius: 28px;
   position: relative;
-  transition: background-color 0.25s;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border: 1px solid #000000;  /* ✅ 추가 */
 }
 
 .toggle.on {
-  background-color: #4a90d9;
+  background-color: #000000;  /* ✅ 파란색 → 검정색 */
 }
 
 .toggle-circle {
   position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 20px;
-  height: 20px;
-  background-color: #fff;
+  width: 22px;
+  height: 22px;
+  background-color: #000000;
   border-radius: 50%;
-  transition: left 0.25s;
+  top: 50%;                        /* ✅ 3px → 50% */
+  transform: translateY(-50%);     /* ✅ 수직 가운데 정렬 */
+  left: 3px;
+  transition: transform 0.3s;
   box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
+/* 켜졌을 때 */
 .toggle.on .toggle-circle {
-  left: 25px;
+  transform: translateY(-50%) translateX(42px);  /* ✅ translateY 유지 */
+  background-color: #ffffff;
+}
+
+.danger{
+  display: flex;
+  justify-content: space-between;
 }

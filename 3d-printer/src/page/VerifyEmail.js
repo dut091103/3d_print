@@ -5,8 +5,9 @@ import './VerifyEmail.css';
 function VerifyEmail() {
   const navigate = useNavigate();
   const [code, setCode] = useState('');
-  const [timer, setTimer] = useState(600); // 9분 7초
+  const [timer, setTimer] = useState(600);
   const [isActive, setIsActive] = useState(true);
+  const [verified, setVerified] = useState(false);  // ✅ 인증 완료 상태 추가
 
   useEffect(() => {
     if (!isActive || timer <= 0) return;
@@ -26,16 +27,21 @@ function VerifyEmail() {
     setTimer(547);
     setIsActive(true);
     setCode('');
+    setVerified(false);  // ✅ 재발송 시 인증 초기화
     alert('인증코드가 재발송되었습니다.');
   };
 
-  const handleConfirm = () => {
+  const handleCheckCode = () => {  // ✅ 옆의 확인 버튼
     if (!code) {
       alert('인증코드를 입력해주세요.');
       return;
     }
-    alert('인증이 완료되었습니다.');
-    navigate('/Login');
+    setVerified(true);  // ✅ 인증 완료
+  };
+
+  const handleConfirm = () => {  // ✅ 아래 확인 버튼
+    if (!verified) return;  // ✅ 인증 안 됐으면 동작 안 함
+    navigate('/reset-password');
   };
 
   return (
@@ -45,12 +51,10 @@ function VerifyEmail() {
       <div className="verify-card">
         <h2 className="verify-title">비밀번호 찾기</h2>
 
-        {/* 재발송 버튼 */}
         <button className="verify-resend-btn" onClick={handleResend}>
           재발송
         </button>
 
-        {/* 이메일 인증 */}
         <div className="verify-label">이메일 인증</div>
         <div className="verify-input-row">
           <input
@@ -63,13 +67,17 @@ function VerifyEmail() {
           <span className={`verify-timer ${timer <= 60 ? 'red' : ''}`}>
             {formatTime(timer)}
           </span>
-          <button className="verify-check-btn" onClick={handleConfirm}>
+          <button className="verify-check-btn" onClick={handleCheckCode}>
             확인
           </button>
         </div>
+        <hr/>
 
-        {/* 확인 버튼 */}
-        <button className="verify-confirm-btn" onClick={() => navigate('/reset-password')}>
+        {/* ✅ verified 여부에 따라 클래스 다르게 */}
+        <button
+          className={`verify-confirm-btn ${verified ? 'active' : 'inactive'}`}
+          onClick={handleConfirm}
+        >
           확인
         </button>
 

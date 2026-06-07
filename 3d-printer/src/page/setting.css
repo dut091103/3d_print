@@ -1,128 +1,175 @@
+/* =========================================
+   1. 설정 페이지 전체 레이아웃
+========================================= */
 .setting-page {
   display: flex;
-  height: calc(100vh - 60px); /* header 높이만큼 빼기 */
-  background-color: #f0ede8;
-  font-family: 'Noto Sans KR', sans-serif;
-  overflow: hidden; /* 스크롤 제거 */
+  width: 100%;
+  height: 100vh;/* 헤더 제외한 높이 꽉 채우기 */
+  box-sizing: border-box;
 }
 
+.head {
+  font-size: 22px;
+  color: #000000;
+  font-weight: 400;
+  margin: 0 0 10px 25px;
+}
+
+/* =========================================
+   2. 사이드바 레이아웃 (300px 패딩 버그 완벽 수정)
+========================================= */
 .setting-sidebar {
-  width: 160px;
-  height: 100%;
-  background-color: #e8e4de;
+  /* 1. 가로, 세로 크기를 처음부터 아예 고정 수치로 지정 */
+  width: 180px !important;
+  height: 100% !important;        /* 부모 높이를 다 쓰겠다고 선언 */
+  min-height: 700px !important;   /* ⭐️ 치트키: 화면이 작아져도 최소 700px 밑으로는 절대 못 줄어들게 고정! */
+  
+  /* 2. 주변 레이아웃 때문에 찌그러지는 것 방지 */
+  flex-shrink: 0 !important;      /* ⭐️ 치트키: 옆에 본문 글자가 길어져도 사이드바 크기는 절대 압축하지 마라! */
+  
+  /* 3. 내부 여백 및 정렬 */
+  background-color: #e8e4de !important;
   border-right: 2px solid #000000 !important;
-  padding: 32px 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  align-items: center;
+  padding: 60px 16px !important;  /* 위아래 여백을 60px 줘서 메뉴를 아래로 쓱 밀어내기 */
+  box-sizing: border-box !important;
+  
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important; 
+  gap: 60px !important;           /* 톱니바퀴랑 메뉴 사이 간격을 널널하게 지정 */
+  align-items: center !important;
 }
 
-/* 아이콘 이미지 크기 */
+/* 설정 타이틀 그룹 (톱니바퀴 아이콘 + '설정' 텍스트) */
+.setting-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;    /* 중앙 정렬 */
+  gap: 8px;                   /* 아이콘과 글자 사이 간격 */
+  width: 100%;  
+  flex-shrink: 0;
+  margin-top: 10px;
+}
+
 .setting-icon-img {
   width: 24px !important;
   height: 24px !important;
   object-fit: contain !important;
+  flex-shrink: 0 !important;
   padding: 0;
 }
 
-.setting-title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  width: fit-content;  /* ✅ 추가 */
-  flex-shrink: 0;      /* ✅ 추가 */
-}
 .setting-title-text {
-  font-size: 26px;  /* 20px → 26px */
+  font-size: 20px;
   font-weight: 700;
-  color: #222;
-  white-space: nowrap;
+  color: #222222;
 }
 
+/* =========================================
+   3. 사이드바 내비게이션 메뉴 목록
+========================================= */
 .setting-nav {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  text-align: center;
+  gap: 24px;                  /* 메뉴 글자들 사이 간격을 넓혀 시원하게 배치 */
+  text-align: center;         /* 글자 가운데 정렬 */
+  width: 100%;
 }
 
 .setting-nav-item {
-  font-size: 18px;  /* 15px → 18px */
-  color: #555;
+  font-size: 18px;
+  color: #000000;
   cursor: pointer;
-  padding: 4px 0;
+  padding: 8px 0;             /* 클릭 영역 확보 및 위아래 볼륨감 추가 */
   transition: color 0.2s;
 }
+
 .setting-nav-item:hover {
-  color: #222;
+  color: #666666;
 }
 
 .setting-nav-item.active {
   font-weight: 700;
-  color: #222;
+  color: #000000;
 }
 
-/* 콘텐츠 */
+/* =========================================
+   4. 우측 콘텐츠 본문 영역
+========================================= */
 .setting-content {
   flex: 1;
-  padding: 40px 48px;
+  padding: 40px 0;            /* 좌우 마진을 제어하기 쉽게 좌우 패딩은 0 */
+  overflow-y: auto;           /* 본문 내용이 많아지면 스크롤 생기도록 보호 */
+}
+
+/* 계정 정보 등 소제목 */
+.sub-title {
+  font-size: 22px;
+  font-weight: 400;
+  color: #000000;
+  margin: 16px 0 6px 0;       /* 좌측 마진 제거 */
 }
 
 .section-title {
-  font-size: 22px;  /* 18px → 22px */
-  font-weight: 600;
-  color: #222;
-  margin: 0 0 8px 0;
+  font-size: 22px;
+  font-weight: 400;
+  color: #000000;
+  margin: 0 0 6px 0;          /* 좌측 25px 마진 제거 */
 }
 
+/* 본문 구분선 */
 .section-divider {
   border: none;
-  border-top: 1.5px solid #bbb;
-  margin-bottom: 24px;
+  width: 100%;
+  border-top: 1.5px solid #000000;
+  margin-bottom: 16px;
 }
 
-.sub-title {
-  font-size: 18px;  /* 15px → 18px */
-  font-weight: 700;
-  color: #222;
-  margin: 0 0 10px 0;
-}
-
-
-/* 각 항목 */
+/* =========================================
+   5. 우측 설정 항목 상세 박스들 (이메일 변경, 로그아웃 등)
+========================================= */
 .setting-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  display: flex !important;
+  align-items: center !important;
+  
+  /* ⭐️ 추가: 내부 요소들을 왼쪽부터 차례대로 정렬합니다. */
+  justify-content: flex-start !important; 
+  
+  /* ⭐️ 글자와 화살표 사이의 간격을 원하는 만큼 조절합니다 (예: 8px ~ 16px) */
+  gap: 12px !important; 
+  
   background-color: #f5f2ed;
-  border: 1px solid #ddd;
+  border: 1px solid #000000;
   border-radius: 8px;
-  padding: 16px 18px;
-  margin-bottom: 10px;
-  font-size: 16px;
-  color: #333;
+  padding: 14px 18px;
+  font-size: 14px;
+  color: #333333;
+  margin: 0 25px 12px;
   cursor: pointer;
-  transition: background-color 0.15s;
-  white-space: nowrap;  /* ✅ 추가 */
-  justify-content: flex-start;  /* ✅ 추가 - 왼쪽 정렬 */
+  transition: background-color 0.15s ease;
 }
 
 .setting-item:hover {
   background-color: #eceae4;
 }
 
+.setting-item span { 
+  color: #000000; 
+}
+
+/* 탈퇴 등 위험 버튼 */
 .setting-item.danger {
   color: #c0392b;
 }
 
+/* 내부 화살표 아이콘 */
 .arrow-img {
   width: 20px !important;
   height: 20px !important;
   object-fit: contain !important;
   flex-shrink: 0 !important;
 }
+
 .divider-bar {
   color: #000000;
   font-weight: 300;
@@ -133,7 +180,9 @@
   font-weight: 500;
 }
 
-/* 배경 흐림 */
+/* =========================================
+   6. 모달 창 (팝업 레이아웃)
+========================================= */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -147,9 +196,8 @@
   z-index: 1000;
 }
 
-/* 팝업 박스 */
 .modal-box {
-  background: #fff;
+  background: #ffffff;
   border-radius: 12px;
   padding: 32px 28px;
   width: 280px;
@@ -167,13 +215,13 @@
 .modal-title {
   font-size: 16px;
   font-weight: 700;
-  color: #222;
+  color: #222222;
   margin: 0;
 }
 
 .modal-desc {
   font-size: 13px;
-  color: #888;
+  color: #000000;
   margin: 0;
   line-height: 1.6;
 }
@@ -181,14 +229,45 @@
 .modal-btn {
   width: 100%;
   padding: 12px 0;
-  border-radius: 8px;
-  border: 1px solid #ddd;
+  border-radius: 6px;
+  border: 1.5px solid #000000;
   font-size: 15px;
   cursor: pointer;
   background: #f5f5f5;
-  color: #333;
+  color: #000000;
 }
 
 .modal-btn:hover {
   background: #e8e8e8;
+}
+
+
+.confirm{
+  color: #000;
+  background-color: #E2DED8;
+}
+.modal-bin-img {
+  /* 45px에서 원하는 크기로 키웁니다 (예: 65px) */
+  width: 65px !important;       
+  height: 65px !important;      
+  
+  /* 이미지 고유 비율 유지 */
+  object-fit: contain !important; 
+  
+  display: block !important;
+}
+
+.modal-icon-container {
+  width: 100px !important;
+  height: 100px !important;
+  background-color: #E2DED8 !important; 
+  border-radius: 50% !important;         
+  
+  /* 중앙 정렬 유지 */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  
+  margin: 0 auto 10px auto !important; 
+  flex-shrink: 0 !important;
 }

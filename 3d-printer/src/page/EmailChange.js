@@ -5,6 +5,7 @@ import './EmailChange.css';
 function EmailChange() {
   const navigate = useNavigate();
   const [newEmail, setNewEmail] = useState('');
+  const [activeMenu, setActiveMenu] = useState('계정');
 
   return (
     <div className="email-page">
@@ -16,17 +17,27 @@ function EmailChange() {
           <span className="setting-title-text">설정</span>
         </div>
         <nav className="setting-nav">
-          <div className="setting-nav-item" onClick={() => navigate('/settings')}>계정</div>
-          <div className="setting-nav-item" onClick={() => navigate('/settings')}>알림</div>
+          <div
+                className={`setting-nav-item ${activeMenu === '계정' ? 'active' : ''}`}
+                onClick={() => setActiveMenu('계정')}
+            >
+                계정
+            </div>
+          <div
+                className="setting-nav-item"
+                onClick={() => navigate('/notification')}
+            >
+                알림
+            </div>
         </nav>
       </div>
 
       {/* 콘텐츠 */}
       <div className="email-content">
-        <h3 className="email-section-label">로그인 정보</h3>
+        <h2 className="sub-title">로그인 정보</h2>
         <hr className="email-divider" />
+        <h2 className="sub-title">이메일 변경/확인</h2>
 
-        <h2 className="email-title">이메일 변경/확인</h2>
 
         <div className="email-item">
           <span className="email-label">기존 이메일</span>

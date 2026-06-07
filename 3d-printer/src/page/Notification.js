@@ -24,11 +24,10 @@ function Notification() {
       {/* 콘텐츠 */}
       <div className="noti-content">
         <h2 className="noti-section-title">알림</h2>
-        <hr className="noti-divider" />
+        <hr className="email-divider" />
 
-        <h3 className="noti-sub-title">알림 키기/끄기</h3>
-
-        <div className="noti-item">
+        <h2 className="noti-sub-title">알림 키기/끄기</h2>
+        <div className="setting-item danger">
           <span className="noti-label">알림 키기/끄기</span>
           <div
             className={`toggle ${alarmOn ? 'on' : ''}`}
@@ -37,6 +36,7 @@ function Notification() {
             <div className="toggle-circle" />
           </div>
         </div>
+
 
       </div>
     </div>

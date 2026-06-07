@@ -1,7 +1,7 @@
 .verify-container {
   position: relative;
   width: 100%;
-  height: calc(100vh - 60px);
+  height: 100vh;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -28,7 +28,7 @@
   padding: 32px 36px;
   border-radius: 8px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  width: 420px;
+  width: 50%;
   max-width: 90%;
   display: flex;
   flex-direction: column;
@@ -79,16 +79,16 @@
   flex: 1;
   padding: 10px 12px;
   font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  border: none;
+  border-radius: 0;
   outline: none;
   box-sizing: border-box;
-  transition: border-color 0.2s;
+  background-color: transparent;
 }
 
-.verify-input:focus {
-  border-color: #000;
-}
+/* .verify-input:focus {
+  border-bottom: 1px solid #000;
+} */
 
 .verify-timer {
   font-size: 14px;
@@ -102,6 +102,11 @@
   color: #e74c3c;
 }
 
+hr{
+  margin: 0 0 7px;
+}
+
+/* 옆 확인 버튼 */
 .verify-check-btn {
   padding: 10px 16px;
   font-size: 14px;
@@ -109,18 +114,30 @@
   background-color: #4a90d9;
   color: #fff;
   border: none;
-  border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.2s;
   white-space: nowrap;
 }
 
 .verify-check-btn:hover {
-  background-color: #357abd;
+  background-color: #333;
 }
 
-/* 확인 버튼 */
-.verify-confirm-btn {
+/* 확인 버튼 - 비활성 (밝은 베이지색) */
+.verify-confirm-btn.inactive {
+  width: 100%;
+  height: 48px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #e8e4de;
+  color: #aaa;
+  border: none;
+  border-radius: 6px;
+  cursor: not-allowed;
+}
+
+/* 확인 버튼 - 활성 (갈색) */
+.verify-confirm-btn.active {
   width: 100%;
   height: 48px;
   font-size: 16px;
@@ -133,7 +150,7 @@
   transition: background-color 0.2s;
 }
 
-.verify-confirm-btn:hover {
+.verify-confirm-btn.active:hover {
   background-color: #b5a58b;
   color: #fff;
 }

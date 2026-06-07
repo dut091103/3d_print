@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './setting.css';
+import './EmailChange.css';
 
 function Setting() {
   const navigate = useNavigate();
@@ -34,15 +35,15 @@ function Setting() {
       </div>
 
       {/* 콘텐츠 영역 */}
-      <div className="setting-content">
+      <div className="email-content">
 
         {activeMenu === '계정' && (
           <>
-            <h2 className="section-title">계정</h2>
-            <hr className="section-divider" />
+            <h2 className="head">계정</h2>
+            <hr className="email-divider" />
 
             {/* 로그인 정보 */}
-            <h3 className="sub-title">로그인 정보</h3>
+            <h2 className="head">로그인 정보</h2>
             <div className="setting-item" onClick={() => navigate('/email-change')}>
                 <span>이메일 변경/확인</span>
                 <img src="/arrow.svg" alt="arrow" className="arrow-img" />
@@ -53,7 +54,7 @@ function Setting() {
             </div>
 
             {/* 계정 정보 */}
-            <h3 className="sub-title">계정 정보</h3>
+            <h2 className="head">계정 정보</h2>
             <div className="setting-item">
               <span>가입일</span>
               <span className="divider-bar">|</span>
@@ -66,7 +67,7 @@ function Setting() {
             </div>
 
             {/* 로그아웃/회원 탈퇴 */}
-            <h3 className="sub-title">로그아웃/회원 탈퇴</h3>
+            <h2 className="head">로그아웃/회원 탈퇴</h2>
             <div className="setting-item" onClick={() => navigate('/')}>
               <span>로그아웃</span>
               <img src="/arrow.svg" alt="arrow" className="arrow-img" />
@@ -79,15 +80,20 @@ function Setting() {
             {/* 팝업 모달 */}
             {showModal && (
             <div className="modal-overlay" onClick={() => setShowModal(false)}>
-                <div className="modal-box" onClick={(e) => e.stopPropagation()}>
-                <div className="modal-icon">🗑️</div>
+              <div className="modal-box" onClick={(e) => e.stopPropagation()}>
+                
+                {/* ✅ 텍스트 이모지 대신 디자인 시안에 맞춘 이미지 컨테이너로 교체 */}
+                <div className="modal-icon-container">
+                  <img src="/bin.png" alt="삭제" className="modal-bin-img" />
+                </div>
+                
                 <p className="modal-title">정말 회원 탈퇴 하시겠습니까?</p>
                 <p className="modal-desc">탈퇴시, 계정은 삭제되며<br/>복구되지 않습니다.</p>
                 <button className="modal-btn confirm" onClick={() => alert('탈퇴 처리')}>확인</button>
                 <button className="modal-btn cancel" onClick={() => setShowModal(false)}>취소</button>
-                </div>
+              </div>
             </div>
-            )}
+          )}
           </>
         )}
 
@@ -95,7 +101,7 @@ function Setting() {
           <>
             <h2 className="section-title">알림</h2>
             <hr className="section-divider" />
-            <h3 className="sub-title">알림 설정</h3>
+            <h2 className="sub-title">알림 설정</h2>
             <div className="setting-item">
               <span>프린트 완료 알림</span>
               <input type="checkbox" defaultChecked />
