@@ -89,7 +89,16 @@ function Setting() {
                 
                 <p className="modal-title">정말 회원 탈퇴 하시겠습니까?</p>
                 <p className="modal-desc">탈퇴시, 계정은 삭제되며<br/>복구되지 않습니다.</p>
-                <button className="modal-btn confirm" onClick={() => alert('탈퇴 처리')}>확인</button>
+                <button 
+                  className="modal-btn confirm" 
+                  onClick={() => {
+                    alert('탈퇴 처리되었습니다.');
+                    setShowModal(false); // 1. 모달 닫기
+                    navigate('/login');       // 2. 로그인(메인) 화면으로 이동
+                  }}
+                >
+                  확인
+                </button>
                 <button className="modal-btn cancel" onClick={() => setShowModal(false)}>취소</button>
               </div>
             </div>
