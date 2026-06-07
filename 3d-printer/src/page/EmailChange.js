@@ -12,7 +12,7 @@ function EmailChange() {
       {/* 사이드바 */}
       <div className="setting-sidebar">
         <div className="setting-title">
-          <span className="setting-icon-wrap">⚙️</span>
+          <img src="/setting.png" alt="설정" className="setting-icon-img" />  {/* ← 이미지로 교체 */}
           <span className="setting-title-text">설정</span>
         </div>
         <nav className="setting-nav">

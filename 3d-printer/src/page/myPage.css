@@ -172,17 +172,19 @@
   /* 화면이 너무 작아질 때 글자가 강제로 줄바꿈되어 겹치는 것 방지 */
   white-space: nowrap;       
 }
-.record{
+.record {
   margin: 20px auto 20px;
   text-align: center;
   padding: 20px;
   width: 80%;
-  /* height: 60vh; */
-  /* background-color: #501b1b; */
+  height: 60vh;
+  background-color: #E2DED8;
   border-radius: 10px;
   border: 1px solid #000000;
-
+  display: flex;          /* ✅ 추가 */
+  flex-direction: column; /* ✅ 추가 */
 }
+
 .head {
   display: flex;
   text-align: center;

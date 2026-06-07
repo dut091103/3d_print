@@ -45,11 +45,11 @@ function Setting() {
             <h3 className="sub-title">로그인 정보</h3>
             <div className="setting-item" onClick={() => navigate('/email-change')}>
                 <span>이메일 변경/확인</span>
-                <span className="arrow">➔</span>
+                <img src="/arrow.svg" alt="arrow" className="arrow-img" />
             </div>
             <div className="setting-item" onClick={() => navigate('/password-change')}>
                 <span>비밀번호 변경</span>
-                <span className="arrow">➔</span>
+                <img src="/arrow.svg" alt="arrow" className="arrow-img" />
             </div>
 
             {/* 계정 정보 */}
@@ -69,12 +69,12 @@ function Setting() {
             <h3 className="sub-title">로그아웃/회원 탈퇴</h3>
             <div className="setting-item" onClick={() => navigate('/')}>
               <span>로그아웃</span>
-              <span className="arrow">➔</span>
+              <img src="/arrow.svg" alt="arrow" className="arrow-img" />
             </div>
             {/* 회원 탈퇴 버튼 */}
             <div className="setting-item danger" onClick={() => setShowModal(true)}>
                 <span>회원 탈퇴</span>
-                <span className="arrow">➔</span>
+                <img src="/arrow.svg" alt="arrow" className="arrow-img" />
             </div>
             {/* 팝업 모달 */}
             {showModal && (

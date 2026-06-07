@@ -9,12 +9,8 @@
 
 /* 🚀 3D 프린터 메인 이미지 스타일 최적화 */
 .main-page-container img,
-.main-content img {
-  width: 100% !important;    /* 화면 가로폭을 꽉 채우기 */
-  height: auto;              /* 이미지 비율 유지 */
-  display: block;            /* 하단 미세한 공백 방지 */
-  object-fit: cover;         /* 화면 크기에 맞게 예쁘게 채움 */
-  position: relative;
+.main-content img:not(.profile-image):not(.arrow-img):not(.setting-icon-img) {
+  width: 100% !important;
 }
 
 /* p 태그 전역 스타일에서 margin-left 제거 */

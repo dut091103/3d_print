@@ -10,46 +10,51 @@
   width: 160px;
   height: 100%;
   background-color: #e8e4de;
-  border-right: 2px solid #000000;  /* ← 이미 검정색이네요! */
+  border-right: 2px solid #000000 !important;
   padding: 32px 16px;
   display: flex;
   flex-direction: column;
   gap: 32px;
+  align-items: center;
 }
 
 /* 아이콘 이미지 크기 */
 .setting-icon-img {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
+  width: 24px !important;
+  height: 24px !important;
+  object-fit: contain !important;
+  padding: 0;
 }
 
 .setting-title {
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  gap: 4px;
+  width: fit-content;  /* ✅ 추가 */
+  flex-shrink: 0;      /* ✅ 추가 */
 }
-
 .setting-title-text {
-  font-size: 20px;
+  font-size: 26px;  /* 20px → 26px */
   font-weight: 700;
   color: #222;
+  white-space: nowrap;
 }
 
 .setting-nav {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  text-align: center;
 }
 
 .setting-nav-item {
-  font-size: 15px;
+  font-size: 18px;  /* 15px → 18px */
   color: #555;
   cursor: pointer;
   padding: 4px 0;
   transition: color 0.2s;
 }
-
 .setting-nav-item:hover {
   color: #222;
 }
@@ -66,7 +71,7 @@
 }
 
 .section-title {
-  font-size: 18px;
+  font-size: 22px;  /* 18px → 22px */
   font-weight: 600;
   color: #222;
   margin: 0 0 8px 0;
@@ -79,11 +84,12 @@
 }
 
 .sub-title {
-  font-size: 15px;
+  font-size: 18px;  /* 15px → 18px */
   font-weight: 700;
   color: #222;
   margin: 0 0 10px 0;
 }
+
 
 /* 각 항목 */
 .setting-item {
@@ -93,12 +99,14 @@
   background-color: #f5f2ed;
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 14px 18px;
+  padding: 16px 18px;
   margin-bottom: 10px;
-  font-size: 14px;
+  font-size: 16px;
   color: #333;
   cursor: pointer;
   transition: background-color 0.15s;
+  white-space: nowrap;  /* ✅ 추가 */
+  justify-content: flex-start;  /* ✅ 추가 - 왼쪽 정렬 */
 }
 
 .setting-item:hover {
@@ -109,12 +117,12 @@
   color: #c0392b;
 }
 
-.arrow {
-  margin-left: auto;
-  color: #888;
-  font-size: 13px;
+.arrow-img {
+  width: 20px !important;
+  height: 20px !important;
+  object-fit: contain !important;
+  flex-shrink: 0 !important;
 }
-
 .divider-bar {
   color: #000000;
   font-weight: 300;
